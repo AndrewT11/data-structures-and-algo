@@ -1,9 +1,3 @@
-# data-structures-and-algo
-
-Data structure and algorithm study notes
-
-- Big O
-
 n = 1,000
 
 - O(n^2) - A loop within a loop. 1,000,000
