@@ -33,7 +33,7 @@ class LinkedList {
             this.tail = newNode;
         }
         this.length++;
-        return this;
+        return this; // this will return the entire Linked List
     }
 
     pop() {
@@ -41,17 +41,20 @@ class LinkedList {
         if(!this.head) {
             return undefined;
         }
-        // if more than one node in Linked List
+        
        let temp = this.head;
        let pre = this.head;
+       
+        // if more than one node in Linked List. This can only occur if there is a node after the node temp is pointing at.
 
+        // we can also use a for loop here, using this.length to end the for loop. using a While loop will return null or flase when temp.next has no next, so we can end the loop when next = null
         while(temp.next) {
             pre = temp;
             temp = temp.next;
         }
 
         this.tail = pre;
-        this.tail.next = null;
+        this.tail.next = null; //this will remove the last item
         this.length--;
 
         // if we only have 1 item in Linked List. There is nothing in the list, thus head and tail must both be null.
@@ -59,7 +62,7 @@ class LinkedList {
             this.head = null;
             this.tail = null;
         }
-        return temp;
+        return temp; // returning temp is returning the item we popped off.
     }
 }
 
