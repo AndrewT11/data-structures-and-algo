@@ -46,15 +46,15 @@ class LinkedList {
        let pre = this.head;
 
         while(temp.next) {
-            let pre = temp;
-            let temp = temp.next;
+            pre = temp;
+            temp = temp.next;
         }
 
         this.tail = pre;
         this.tail.next = null;
         this.length--;
 
-        // if we only have 1 item in Linked List
+        // if we only have 1 item in Linked List. There is nothing in the list, thus head and tail must both be null.
         if (this.length === 0) {
             this.head = null;
             this.tail = null;
@@ -65,3 +65,8 @@ class LinkedList {
 
 let myLinkedList = new LinkedList(1);
 myLinkedList.push(2)
+console.log("Two Items: ", myLinkedList);
+myLinkedList.pop();
+console.log("One Items: ", myLinkedList)
+myLinkedList.pop();
+console.log("Zero Items: ", myLinkedList)
