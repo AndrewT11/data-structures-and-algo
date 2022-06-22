@@ -5,6 +5,9 @@
 // 1) Once again, what if there are no node to pop off? Both pointers will be pointing at null
 // 2) If we only have 1 item 
 
+// pop is where we need to use pre and temp
+// pre will always be the node before the last node. Temp should be the last node. At the end of the day, temp should be the tail if there are nodes.
+
 class Node {
     constructor(value) {
         this.value = value;
@@ -62,7 +65,7 @@ class LinkedList {
             this.head = null;
             this.tail = null;
         }
-        return temp; // returning temp is returning the item we popped off.
+        return temp; // returning temp is returning the item we popped off. Remember, this is a pop. If you want the Linked List, console.log linked list. When you call for pop, you want to know what you had popped off, thus returning temp, which is going to be your tail.
     }
 }
 
