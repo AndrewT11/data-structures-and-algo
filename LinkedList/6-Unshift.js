@@ -50,8 +50,8 @@ class LinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            newNode.next = this.head; 
-            this.head = newNode;
+            newNode.next = this.head; //point newNode.next to current head so we have reference point.
+            this.head = newNode; // then we make newNode the head because newNode.next is now pointing at the current head, so we can make newNode the new head.
         }
         this.length++; // Linked List is getting longer as we added an item to the front
         return this; //once again, this refers to the Linked List, so we are returning the complete linked list
