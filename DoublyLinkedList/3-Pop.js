@@ -47,3 +47,6 @@ class DoublyLinkedList {
         return temp;  
     }
 }
+
+let myDoublyLinkedList = new DoublyLinkedList(1)
+myDoublyLinkedList.push(2)
