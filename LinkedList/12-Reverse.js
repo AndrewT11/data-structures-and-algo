@@ -101,26 +101,38 @@ class LinkedList {
      }
 
      remove(index) {
-        if(index < 0 || index > this.length) return undefined;
-        //remove from beginning of list, just use shift
-        if(index === 0) return this.shift()
-        //remove from end of list, just use pop
-        if(index === this.length -1) return this.pop()
-
-        // We will have before point to the index of the item right before the item we want to remove. After this, we have temp become before.next, which is the item we want to remove.
-        const before = this.get(index -1)
-        const temp = before.next;
-
-        // to have before ignore temp, we now make before.next point to temp.next and not temp, thus we just broke the chain. Temp is only attached by its next, which we set to null. Now, Temp is floating by itself. We decrement by one and return the value we removed from the Linked List.
-        before.next = temp.next;
-        temp.next = null;
-        this.length--
-        return temp;
+         if(index < 0 || index >= this.length) return undefined
+         if(index === 0) return this.shift()
+         if(index === this.length - 1) return this.pop()
+ 
+         const before = this.get(index - 1)
+         const temp = before.next
+ 
+         before.next = temp.next
+         temp.next = null
+         this.length--
+         return temp
      }
 
+    reverse() {
+        // next 3 lines makes head and tail switch side
+        let temp = this.head;
+        this.head = this.tail; 
+        this.tail = temp;
+
+        let next = temp.next;
+        let prev = null;
+        for(let i = 0; i < this.length; i++) {
+            next = temp.next;
+            temp.next = prev; //null
+            prev = temp; // this is where we flip the next arrow to the reverse direction
+            temp = next; // temp will hop the gap here and temp, next will be on the same item until loop runs again. Once the last for loop has run, temp and next should = null and prev will be at the beginning of the reversed linked list
+        }
+        return this;
+    }
 }
- 
-let myLinkedList = new LinkedList(11)
+
+
+let myLinkedList = new LinkedList(1)
+myLinkedList.push(2)
 myLinkedList.push(3)
-myLinkedList.push(23) 
-myLinkedList.push(7) 
