@@ -1,8 +1,8 @@
 class Node {
     constructor(value) {
         this.value = value;
-        this.right = null;
         this.left = null;
+        this.right = null;
     }
 }
 
@@ -18,17 +18,15 @@ class BST {
             return this;
         }
         let temp = this.root;
-        while(true) {    
-            if(newNode.value === temp.value) return undefined;
-            if(newNode.value < temp.value) {
+        while(true) {
+            if(value === temp.value) return undefined;
+            if(value < temp.value) {
                 if(temp.left === null) {
                     temp.left = newNode;
                     return this;
                 }
-                temp= temp.left;
-            }
-
-            if(newNode.value > temp.value) {
+                temp = temp.left
+            } else {
                 if(temp.right === null) {
                     temp.right = newNode;
                     return this;
@@ -39,23 +37,24 @@ class BST {
     }
 
     contains(value) {
-        // if root is null, there are no numbers inside the tree, so you will not find the value you want
-        if(this.root === null) return false;
+        if (this.root === null) return false;
         let temp = this.root;
         while(temp) {
-            // move left if value is smaller than temp
-            if (value < temp.value) {
+            if(value < temp.value) {
                 temp = temp.left
-            // move right if value is greater than temp
-            } else if(value > temp.value) {
+            } else if (value > temp.value) {
                 temp = temp.right
-            // if value = temp.value, then return true. The value you were searching for was contained inside of the binary tree
             } else {
-                return true
+                return true;
             }
         }
-        // at this point, you have gone correctly through the binary tree. temp.value = null if you have not matched the value to temp.value, the value is not inside the binary tree, thus a temp = null will return false, similar to if this.root = null.
         return false;
+    }
+    minValueNode(currentNode) {
+        while(currentNode.left != null) {
+            currentNode = currentNode.left
+        }
+        return currentNode;
     }
 }
 
@@ -67,3 +66,5 @@ myTree.insert(18)
 myTree.insert(27)
 myTree.insert(52)
 myTree.insert(82)
+console.log(myTree.minValueNode(myTree.root))
+myTree.minValueNode(myTree.root.right);

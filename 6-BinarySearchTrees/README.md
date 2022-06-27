@@ -1,4 +1,4 @@
-**_TREE_**
+**_TREE_** - Binary search trees are null terminated lists
 
 Linked Lists are forms of trees that don't fork.
 
@@ -42,3 +42,10 @@ How many lines must you traverse to find the number? Each line is a step you mus
 - lookup(): Binary Tree O(log n) vs O(n) (LL or array)
 - insert(): Linked List or Array O(1)
 - remove(): Binary Tree O(log n) vs O(n) (LL or array)
+
+QUIZ:
+
+- Binary Search Trees do not always have a better Big O than Linked List.
+- Adding an item to a binary tree is O(log n). Very good.
+- Adding an item to the end of a linked list is O(1). In general, binary tree is better, but some things are still better with a linked list.
+- Inserting a number into a binary tree is not always O(log n). It can be O(n) in the case (example) where the item you are looking for is in a binary tree that does not branch, but only continues to get bigger or smaller in one direction, thus are moving and iterating through each number in a Linked List, but it looks like a binary tree.
