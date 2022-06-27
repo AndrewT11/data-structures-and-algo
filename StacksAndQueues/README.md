@@ -1,4 +1,5 @@
-What is a stack?
+**_Stack Intro_**
+
 Think of a can of tennis balls. Remove balls and add one at a time.
 
 - When adding to a stack, call it pushing.
@@ -23,3 +24,16 @@ for stacks, instead of Head and Tail:
 
 - Top = Head;
 - Bottom = Tail; // null end, but we won't use it for these examples
+
+**_Queue Intro_**
+When in line, you are enqueue.
+When you remove someon from line, dequeue.
+FIFO - first in first out
+
+- For arrays, you will need to add to one end and remove from the other end. You will always have both an O(1) and O(n) operation for arrays
+
+- For Linked Lists, you want to enqueue and dequeue at O(1).
+- If you LL-push, O(1), but LL-pop is O(n)
+- For LL-shift and LL-unshift, both operations are O(1)
+- So, we want two O(1) operations, so we will need to push at the null end, and shift at the top to keep full operation O(1);
+  --- Enqueue at the bottom and dequeue from the top.
