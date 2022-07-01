@@ -27,3 +27,11 @@ set(key, value). The data will be sent to the hash table as an array of [key, va
 **_Constructor_**
 
 - You will get a more randomized distribution if items in your hash table if you have a prime number of address spaces
+
+**_ Big O _**
+
+- Hash method is O(1). The equation will always be the same number of operations, so its constant time.
+
+- Set() method is an O(1) operation. Constant way to add one item to the end of an array, list, whatever
+
+- Get() method is O(1). But but but...what if there are multiple items inside the address space. Hash tables are incredibly efficient at randomizing placement of items, so rarely will you have multiple items inside one address space, making the operation constant when retrieving data.
