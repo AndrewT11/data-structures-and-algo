@@ -13,6 +13,7 @@ class BST {
 
     insert(value) {
         const newNode = new Node(value);
+        // if no root, the newNode created will be the root
         if (this.root === null) {
             this.root = newNode;
             return this;
@@ -20,18 +21,23 @@ class BST {
 
         let temp = this.root
         while(true) {
+            // we will not have duplicate numbers, thus we return undefined if we run into a newNode.value that is the same as temp.value
             if (newNode.value === temp.value) return undefined;
+            // moving to the left if newNode.value is smaller than temp.value
             if (newNode.value < temp.value) {
+                // if there is no node to the left of temp, the newNode becomes the left node of temp
                 if (temp.left === null) {
                     temp.left = newNode
                     return this
                 }
+                // we will keep pushing temp to the left until the if statement above pushes us out of the loop
                 temp = temp.left
             } else {
                 if (temp.right === null) {
                     temp.right = newNode
                     return this
                 }
+                // we will keep pushing temp to the right until the if statement above pushes us out of hte loop
                 temp = temp.right
             }
         }
