@@ -42,6 +42,7 @@ class BST {
         // if root is null, there are no numbers inside the tree, so you will not find the value you want
         if(this.root === null) return false;
         let temp = this.root;
+        // this while loop will cycle through your tree, going left or right until it finds the value and returns true.
         while(temp) {
             // move left if value is smaller than temp
             if (value < temp.value) {
